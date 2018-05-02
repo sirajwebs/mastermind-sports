@@ -1,0 +1,51 @@
+<div class="stnHdr">{{teamNm}}</div>
+<div class="stnHdr2" *ngIf="suscErrFlagFX==='SC'">
+  Fixtures
+  <span class="subHdr">List of upcoming matches for {{teamNm}}</span>
+</div>
+<div class="row elements-button-div compDiv" *ngIf="suscErrFlag==='SC'">
+  <div class="col-lg-4 col-md-4 button-style comp" *ngFor="let list of fixtures; let i=index">
+    <b>{{list.homeTeamName}}
+      <span class="vs">VS</span> {{list.awayTeamName}}</b>
+    <br/>
+    <br/> {{list.date}}
+    <br/>
+    <br/>
+    <span class="cd" id="CD_{{i}}"></span>
+  </div>
+</div>
+<div *ngIf="suscErrFlagFX==='ER'">Server Error</div>
+
+<div class="stnHdr2" *ngIf="suscErrFlag==='SC'">Players
+  <span class="subHdr">List of players participating in the tournament</span>
+</div>
+<div class="row elements-button-div stnDiv" *ngIf="suscErrFlag==='SC'">
+  <div class="col-lg-4 col-md-4 button-style stn">
+    <table class="table table-hover stn-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Jersey No.</th>
+          <th>Nationality</th>
+          <th>Date Of Birth</th>
+          <th>Contract Until</th>
+          <th>Market Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let li of playerList; let i=index">
+          <td class="team">{{li.name}}</td>
+          <td>{{li.position}}</td>
+          <td>{{li.jerseyNumber}}</td>
+          <td>{{li.nationality}}</td>
+          <td>{{li.dateOfBirth}}</td>
+          <td>{{li.contractUntil}}</td>
+          <td>{{li.marketValue}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br/>
+  </div>
+</div>
+<div *ngIf="suscErrFlag==='ER'">Server Error</div>

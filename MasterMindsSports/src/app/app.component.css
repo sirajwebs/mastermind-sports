@@ -1,0 +1,97 @@
+a{
+text-decoration: none;
+  }
+  
+.menuUL{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.menuLI{
+   margin: 0 20px 0 20px;
+   text-shadow: none;
+}
+
+.menuLI a{
+   cursor: pointer;
+   transition: 0.1s ease-in-out;
+   color: #f4f4f4;
+}
+
+.menuLI a:hover{
+      text-shadow: 2px 2px 2px #333;
+      color: #fff;
+}
+
+.title {
+    margin: 0;
+    color: #fff;
+    font-size: 25px;
+    padding-left: 10px;
+   
+}
+
+.titleDiv, .menuDiv{
+    padding: 10px;
+    text-shadow: 2px 2px 2px #333;
+    box-shadow: 0px 0px 15px #ccc;
+    /* border-radius: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleDiv{
+  cursor: pointer;
+}
+
+.menuDiv{
+  width: 500px;
+}
+
+.router{
+  padding: 20px;
+  min-height: 500px;
+}
+
+.header{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.titleImg{
+  height: 120px;
+}
+
+.imgBG{
+    opacity: 0.4;
+    bottom: -2;
+    right: 0;
+    z-index: -1;
+    position: fixed;
+    width: 500px;
+}
+
+.menuDiv{
+    position: absolute;
+    right: 0;
+}
+
+.footer{
+  position: absolute;
+  left: 0;
+  padding: 20px;
+  box-shadow: 0px 0px 15px #ccc;
+  width: 100%;
+}
+
+
+/************* Responsive Design**************/
+

@@ -1,0 +1,16 @@
+<div class="compHdr" *ngIf="suscErrFlag==='SC'">List of Competition
+    <span class="subHdr">Choose a competion to view points tables</span>
+</div>
+<div class="row elements-button-div compDiv" *ngIf="suscErrFlag==='SC'">
+    <div (click)="compMenu(list.id)" class="col-lg-4 col-md-4 button-style comp" *ngFor="let list of compList; let i=index">
+        <b>{{list.caption}}</b>
+        <br/>
+        <br/> League : {{list.league}}
+        <br/> No. of Games : {{list.numberOfGames}}
+        <br/> No. of Teams : {{list.numberOfTeams}}
+        <br/>
+        <button class="elements-btn btn-comp">Continue</button>
+        <!-- <img class="menu" src="./assets/images/comp.jpg"> -->
+    </div>
+</div>
+<div *ngIf="suscErrFlag==='ER'">Server Error</div>
