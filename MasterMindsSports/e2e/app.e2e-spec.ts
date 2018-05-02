@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('mind-tree App', () => {
+describe('MasterMindsSports App', () => {
   let page: AppPage;
 
   beforeEach(() => {
