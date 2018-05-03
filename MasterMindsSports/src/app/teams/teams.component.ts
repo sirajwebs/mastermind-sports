@@ -1,6 +1,6 @@
 import { DataShareService } from './../datashare.service';
 import { ApicallService } from './../apicall.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router, RouterModule } from '@angular/router';
   providers: [ApicallService]
 })
 
-export class TeamsComponent implements OnInit {
+export class TeamsComponent implements OnInit, OnDestroy {
 
   suscErrFlag: any;
   suscErrFlagFX: any;
@@ -18,6 +18,8 @@ export class TeamsComponent implements OnInit {
   playerList: any;
   teamNm: any;
   id: any;
+  nofixture: any;
+  x: any;
 
   constructor(private _api: ApicallService,
     private _router: Router,
@@ -40,8 +42,8 @@ export class TeamsComponent implements OnInit {
 
       this._api.getFixtures(this.id, 5).subscribe((data) => {
         this.suscErrFlagFX = 'SC';
-        this.fixtures = data.fixtures;
-        this.getUpcomingMatch();
+        // this.fixtures = data.fixtures;
+        this.getUpcomingMatch(data.fixtures);
       }, (error) => {
         this.suscErrFlagFX = 'ER';
       })
@@ -51,27 +53,34 @@ export class TeamsComponent implements OnInit {
     }
   }
 
-  getUpcomingMatch() {
+  getUpcomingMatch(fixtures) {
     let d1 = new Date();
-    for (let i = 0; i < this.fixtures.length; i++) {
-      let d2 = new Date(this.fixtures[i].date);
+    this.nofixture = true;
+    for (let i = 0; i < fixtures.length; i++) {
+      let d2 = new Date(fixtures[i].date);
       if (d1.getTime() < d2.getTime()) {
-        this.fixtures = this.fixtures.slice(i, i + 5);
+        this.nofixture = false;
+        this.fixtures = fixtures.slice(i, i + 5);
         for (let j = 0; j < this.fixtures.length; j++) {
           this.fixtures[j].date = new Date(this.fixtures[j].date).toDateString();
-          console.log(' hgdh ', this.fixtures[j].date);
-          this.countdown(this.fixtures[j].date, j)
+          this.countdown(this.fixtures[j].date, j);
         }
         break;
-      }
+      } 
     }
+
+
   }
 
   countdown(date, i) {
     var countDownDate = new Date(date).getTime();
-    var x = setInterval(function () {
+    console.log('ZZZ ',countDownDate );
+    
+     this.x = setInterval(function () {
       var now = new Date().getTime();
       var time = countDownDate - now;
+      console.log(time, countDownDate, now );
+
       var days = Math.floor(time / (1000 * 60 * 60 * 24));
       var hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
@@ -82,12 +91,16 @@ export class TeamsComponent implements OnInit {
           + minutes + "m " + seconds + "s ";
       }
       if (time < 0) {
-        clearInterval(x);
+        clearInterval(this.x);
         if (document.getElementById('CD_' + i)) {
           document.getElementById('CD_' + i).innerHTML = "EXPIRED";
         }
       }
     }, 1000);
+  }
+
+  ngOnDestroy(){
+    clearInterval(this.x);
   }
 
 }
