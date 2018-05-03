@@ -74,12 +74,10 @@ export class TeamsComponent implements OnInit, OnDestroy {
 
   countdown(date, i) {
     var countDownDate = new Date(date).getTime();
-    console.log('ZZZ ',countDownDate );
     
      this.x = setInterval(function () {
       var now = new Date().getTime();
       var time = countDownDate - now;
-      console.log(time, countDownDate, now );
 
       var days = Math.floor(time / (1000 * 60 * 60 * 24));
       var hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
