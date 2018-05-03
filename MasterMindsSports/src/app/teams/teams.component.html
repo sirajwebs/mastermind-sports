@@ -1,7 +1,8 @@
 <div class="stnHdr">{{teamNm}}</div>
 <div class="stnHdr2" *ngIf="suscErrFlagFX==='SC'">
   Fixtures
-  <span class="subHdr">List of upcoming matches for {{teamNm}}</span>
+  <span class="subHdr" *ngIf="!nofixture">List of upcoming matches for {{teamNm}}</span>
+  <span class="subHdr" *ngIf="nofixture">There is no upcoming fixtures for {{teamNm}}</span>
 </div>
 <div class="row elements-button-div compDiv" *ngIf="suscErrFlag==='SC'">
   <div class="col-lg-4 col-md-4 button-style comp" *ngFor="let list of fixtures; let i=index">
