@@ -1,0 +1,15 @@
+.aboutDiv{
+    margin: 40px;
+    padding: 40px;    
+}
+
+.aboutText{
+    font-size: 16px;
+    text-align: left;
+}
+
+.emphasisText{
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
