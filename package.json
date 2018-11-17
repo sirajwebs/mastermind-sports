@@ -2,6 +2,10 @@
   "name": "siraj-project",
   "version": "1.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "8.9.0",
+    "npm": "2.14.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
