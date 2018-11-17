@@ -1,6 +1,6 @@
 {
   "name": "siraj-project",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -24,7 +24,8 @@
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "@types/node": "~6.0.60",
   },
   "devDependencies": {
     "@angular/cli": "1.5.0",
